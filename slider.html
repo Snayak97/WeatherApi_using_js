@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box ;
+        }
+        main{
+            height: 400px;
+            width: 60%;
+            margin: auto;
+            margin-top: 100px;
+            box-shadow: 0 0 3px gray;
+            position: relative;
+            overflow: hidden;
+
+        }
+        .slide{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        div{
+            margin-top:30px ;
+            text-align: center;
+        }
+        button{
+            font-size: 25px;
+            padding: 5px;
+            margin: 0 5px;
+         
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <img src="./images/clear.jpg" alt="" class="slide">
+        <img src="./images/Cloud.jpg" alt="" class="slide">
+        <img src="./images/mist.png" alt="" class="slide">
+        <img src="./images/rainy.jpg" alt="" class="slide">    
+    </main>
+    <div>
+        <button onclick="GoPrev()">Prev</button>
+        <button onclick="GoNext()">Next</button>
+    </div>
+    
+</body>
+<script>
+    const Slides=document.querySelectorAll(".slide")
+    var count=0;
+    Slides.forEach((val,ind)=>{
+        val.style.left= `${ind * 100}%`
+    })
+
+
+
+    const Slideimage=()=>{
+        Slides.forEach((val)=>{
+            val.style.transform=`translateX(-${count * 100}%)`
+        })
+    }
+
+    const GoNext=()=>{
+        count++
+        if(count>(Slides.length)-1){
+            count=0
+
+        }
+        Slideimage()
+        console.log('hello')
+    
+    }
+    const GoPrev=()=>{
+        count--
+    
+        Slideimage()
+        console.log('hii')
+    
+    }
+</script>
+</html>

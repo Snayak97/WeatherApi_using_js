@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bgc{
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 200px;
+            font-size: 25px;
+        }
+        button, span{
+            font-size: 25px;
+        }
+        
+    </style>
+</head>
+<body>
+    <center>
+    <p class="bgc">
+    <button onclick="totalClick(1)">+</button>
+    <span id="totalClicks">0</span>
+    <button onclick="totalClick(-1)">-</button>
+</p>
+<button id="reset" onclick="totalClick(0)">Reset</button>
+</center>
+<script>
+    const TotalClick=document.getElementById("totalClicks")
+    function totalClick(click){
+        const sumvalue=parseInt(TotalClick.innerText) + click;
+        TotalClick.innerText=sumvalue;
+        if(sumvalue <0){
+            TotalClick.innerText=0
+        }
+        if(click===0){
+            TotalClick.innerText=0
+        }
+      }
+</script>
+</body>
+</html>
